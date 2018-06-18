@@ -12,25 +12,37 @@
     <div class="container">
         <header>
             <h1>Interstellar Startup Employee Directory</h1>
-            <input type="text">
+            <input type="text" placeholder="Search">
         </header>
         <div class="grid_wrapper">
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            <div class="grid-item">Test</div>
-            
+            <div class="grid-item">
+                <img src="https://placeimg.com/200/200/people" class="employee_image">
+                <div class="info_wrapper">
+                    <h3>My Name</h3>
+                    <p>myname@example.com</p>
+                    <p>Location</p>
+                </div>
+            </div>
         </div>
     </div>
-    
+    <div class="modal" style="display: none;">
+        <div class="focus_item">
+            <img src="img/x-mark.svg" alt="x mark to close window" id="close">
+            <img src="img/left_arrow.svg" alt="left arrow" id="left">
+            <img src="img/right_arrow.svg" alt="left arrow" id="right">
+            <div class="image_container">
+                <img src="https://placeimg.com/200/200/people" class="employee_image">
+            </div>
+            <h3>My Name</h3>
+            <p>myname@example.com</p>
+            <p>Location</p>
+            <div class="location_detail">
+                <p>(555)-555-5555</p>
+                <p>12 Myway Rd. New York, NY 10001</p>
+                <p>Birthday: 7/12/82</p>
+            </div>
+        </div>
+    </div>
     <script src="js/app.js"></script>
 </body>
 </html>

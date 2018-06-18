@@ -1,0 +1,43 @@
+.employee_image {
+    border-radius: 50%;
+    max-height: 100%;
+    border: 4px solid $primary-color;
+}
+
+.image_container {
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    margin-bottom: 10px;
+}
+
+#close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 40px;
+    border-radius: 0;
+    border: 0;
+    
+}
+
+#close:hover {
+    height: 45px;
+    transition: .5s;
+}
+
+#left {
+    position: absolute;
+    top: 40%;
+    left: 8px;
+    height: 30px;
+}
+
+#right {
+    position: absolute;
+    top: 40%;
+    right: 8px;
+    height: 30px;
+}
