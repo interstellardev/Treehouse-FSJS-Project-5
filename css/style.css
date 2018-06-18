@@ -5,4 +5,17 @@
 h1 {
   font-family: "Tajawal", sans-serif; }
 
+:root {
+  --rowNum: 4;
+  --colNum: 5;
+  --gridHeight: 120px;
+  --wrapperH: 40px; }
+
+.grid_wrapper {
+  display: grid; }
+
+header {
+  background-color: #0984e3;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
