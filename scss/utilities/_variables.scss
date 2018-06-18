@@ -4,3 +4,9 @@ $primary-color: #0984e3;
 $secondary-color: #dfe6e9;
 $black: #2d3436;
 $white: white;
+
+// Font stack
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Tajawal:800');
+
+$primary-font: 'Tajawal', sans-serif;
+$secondary-font: 'Open Sans', sans-serif;
