@@ -5,17 +5,43 @@
 h1 {
   font-family: "Tajawal", sans-serif; }
 
-:root {
-  --rowNum: 4;
-  --colNum: 5;
-  --gridHeight: 120px;
-  --wrapperH: 40px; }
+.container {
+  margin-right: auto;
+  margin-left: auto; }
 
 .grid_wrapper {
-  display: grid; }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  grid-gap: 1.5em;
+  background-color: #b2bec3;
+  padding: 1em; }
+
+.grid-item {
+  background-color: #dfe6e9;
+  border-radius: 10px;
+  height: 150px; }
 
 header {
-  background-color: #0984e3;
-  color: white; }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #0984e3;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #0984e3 0%, #74b9ff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #0984e3 0%, #74b9ff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #0984e3 0%, #74b9ff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0984e3', endColorstr='#74b9ff',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  color: white;
+  padding: .5em 1.5em; }
+
+input {
+  margin-left: auto;
+  height: 40px;
+  border-radius: 10px;
+  border: none; }
 
 /*# sourceMappingURL=style.css.map */

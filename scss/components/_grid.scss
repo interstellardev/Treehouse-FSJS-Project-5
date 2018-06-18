@@ -1,12 +1,18 @@
-:root {
-    --rowNum: 4;
-    --colNum: 5;
-    --gridHeight: 120px;
-    --wrapperH: 40px; 
-  }
-
-
+.container {
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .grid_wrapper {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-gap: 1.5em;
+    background-color: $secondary-color;
+    padding: 1em;
+}
+
+.grid-item {
+    background-color: $grid-item-color;
+    border-radius: 10px;
+    height: 150px;
 }
