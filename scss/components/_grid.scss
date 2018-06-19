@@ -7,7 +7,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
     grid-gap: .9em;
-    padding: 1em .5em;
+    padding: 4em .8em;
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b2bec3+0,dfe6e9+100 */
     background: #b2bec3; /* Old browsers */
     background: -moz-linear-gradient(-45deg, #b2bec3 0%, #dfe6e9 100%); /* FF3.6-15 */
@@ -53,19 +53,14 @@
     width: 100%;
     top: 0;
     left: 0;
-}
-
-.zero_out {
-    opacity: 0;
-}
-
-.fade {
     -webkit-transition: opacity 2s ease-in;
     -moz-transition: opacity 2s ease-in;
     -o-transition: opacity 2s ease-in;
     -ms-transition: opacity 2s ease-in;
-    transition: opacity 2s ease-in;
+    transition: opacity 5s ease-in;
 }
+
+
 
 .focus_item {
     display: flex;
