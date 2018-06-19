@@ -23,8 +23,8 @@ h3 {
 .grid_wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
-  grid-gap: 1.5em;
-  padding: .5em;
+  grid-gap: .9em;
+  padding: 1em .5em;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b2bec3+0,dfe6e9+100 */
   background: #b2bec3;
   /* Old browsers */
@@ -37,7 +37,7 @@ h3 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2bec3', endColorstr='#dfe6e9',GradientType=1 );
   /* IE6-9 fallback on horizontal gradient */ }
 
-.grid-item {
+.grid_item {
   display: flex;
   padding: 1em;
   align-items: center;
@@ -45,8 +45,14 @@ h3 {
   border-radius: 10px;
   height: 150px; }
 
+.grid_item:hover {
+  -webkit-box-shadow: 0px 0px 28px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 28px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 28px -6px rgba(0, 0, 0, 0.75);
+  transition: .3s; }
+
 .info_wrapper {
-  margin-left: auto;
+  margin-left: 1em;
   width: 60%; }
   .info_wrapper p {
     font-size: .8em; }
@@ -93,13 +99,13 @@ h3 {
   background-color: #0984e3; }
 
 .employee_image {
-  border-radius: 50%;
+  border-radius: 20px;
   max-height: 100%;
   border: 4px solid #0984e3; }
 
 .image_container {
   display: flex;
-  padding: 1em;
+  padding: 1em 0 1em 1em;
   justify-content: center;
   align-items: center;
   height: 40%;
