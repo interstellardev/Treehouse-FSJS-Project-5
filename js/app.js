@@ -2,9 +2,14 @@ const grid = document.querySelector('.grid_wrapper');
 const modal = document.querySelector('.modal');
 const div = document.createElement('div');
 const focusCard = document.querySelector('.focus_item');
+const nav = document.querySelector('header');
 let indexCurrent;
 let cardCount;
 let seed = 'e6f1eb12a70145eb';
+//inserting search bar
+nav.innerHTML += `<input type="text" placeholder="Search">`;
+const searchBox = document.querySelector('input');
+
 
 // ------------------------------------------
 //  HELPER FUNCTIONS
@@ -128,6 +133,43 @@ function getThisEmployeeData(index) {
         });
 }
 
-function search() {
+// ------------------------------------------
+//  SEARCH FUNCTIONS
+// ------------------------------------------
 
-}
+// function search() {
+    
+//     searchBox.addEventListener("keyup", searchBuild());
+// }
+
+
+
+
+// // this function gets value of the search input and then hides everything not matching search.
+// function searchBuild() {
+//     console.log()
+//     // searchButton.addEventListener('click', () => {
+//     //     matchedList = [];
+//     //     let searchValue = searchDiv.querySelector('input').value.toLowerCase();
+//     //     //looping through the student list to see if there are any matches to the search.
+//     //     for (let i = 0; i < students.length; i++) {
+//     //         students[i].style.display = 'none';
+//     //         let studentNames = students[i].querySelector('.student-details h3').innerHTML.toLowerCase();
+//     //         let studentEmail = students[i].querySelector('.student-details .email').innerHTML.toLowerCase();
+//     //         let doesContainName = studentNames.search(searchValue);
+//     //         let doesContainEmail = studentEmail.search(searchValue);
+//     //         if (doesContainName != -1 || doesContainEmail != -1) {
+//     //             matchedList.push(students[i]);
+//     //             students[i].removeAttribute('style');
+//     //         } 
+//     //     }
+//     //     //checking to see if the matchedList array is empty meaning no mathces found.
+//     //     if (matchedList <= 0) {
+//     //         alert("no students found");
+//     //     }
+//     //     //calling theses functions to first list only 10 per page and then appending buttons at the bottom
+//     //     showPage(1, matchedList); 
+//     //     appendPageLinks(matchedList);
+    
+//     };
+// }

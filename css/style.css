@@ -97,6 +97,18 @@ h4 {
   .focus_item img {
     max-height: 100%; }
 
+#controls {
+  z-index: 3; }
+
+#detail_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  overflow: hidden; }
+
 .location_detail {
   display: flex;
   flex-direction: column;
