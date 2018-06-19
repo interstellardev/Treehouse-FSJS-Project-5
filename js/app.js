@@ -45,7 +45,7 @@ function fetchData(url) {
             grid.innerHTML += `<div class="grid_item">
                 <img src="${employeeImage}" class="employee_image">
                 <div class="info_wrapper">
-                    <h3>${employeeFirstName} ${employeeLastName}</h3>
+                    <h4>${employeeFirstName} ${employeeLastName}</h4>
                     <p>${element.email}</p>
                     <p>${emLocation}</p>
                 </div>
@@ -107,7 +107,7 @@ function getThisEmployeeData(index) {
             <div class="image_container">
                 <img src="${employeesImage}" class="employee_image">
             </div>
-            <h3>${employeesFirstName} ${employeesLastName}</h3>
+            <h4>${employeesFirstName} ${employeesLastName}</h4>
             <p>${employees[index].email}</p>
             <p>${emsLocation}</p>
             <div class="location_detail">
