@@ -1,4 +1,5 @@
 const grid = document.querySelector('.grid_wrapper');
+const modal = document.querySelector('.modal');
 const div = document.createElement('div');
 let seed = '98a517cc24fba74d';
 
@@ -42,6 +43,8 @@ fetchData(`https://randomuser.me/api/?seed=${seed}&results=12&nat=us&inc=name,lo
                 </div>
             </div>`;
         });
+        const gridItems = document.querySelectorAll('.grid_item');
+        createEvent(gridItems);
     })
 }());
 
@@ -49,4 +52,10 @@ fetchData(`https://randomuser.me/api/?seed=${seed}&results=12&nat=us&inc=name,lo
 //  EVENT LISTENERS
 // ------------------------------------------
 
-
+function createEvent(itemList) {
+    itemList.forEach(element => {
+        element.addEventListener('click', (e) => {
+            modal.style.display = '';
+        }) 
+    });
+}
