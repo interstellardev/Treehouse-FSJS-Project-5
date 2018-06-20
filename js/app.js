@@ -173,9 +173,11 @@ function searchBuild(list) {
     }
     
     // checking to see if the matchedList array is empty meaning no mathces found.
-    if (matchedList <= 0) {
-        alert("no employees found");
+    if (matchedList < 1) {
+        grid.appendChild(div).innerHTML += `No employees found`;
     }
+    
+
 }
 
 
