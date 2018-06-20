@@ -23,6 +23,11 @@
     background-color: $white;
     border-radius: 10px;
     height: 150px;
+    @include mq(mobile) { 
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }  
 }
 
 .grid_item:hover {
@@ -36,8 +41,11 @@
 .info_wrapper {
     margin-left: 1em;
     width: 60%;
-    p{
+    p {
         font-size: .7em;
+        @include mq(mobile) { 
+            font-size: .6em;
+        }  
     }
     
 }

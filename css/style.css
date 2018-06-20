@@ -52,6 +52,11 @@ h4 {
   background-color: white;
   border-radius: 10px;
   height: 150px; }
+  @media (max-width: 768px) {
+    .grid_item {
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto; } }
 
 .grid_item:hover {
   -webkit-box-shadow: 0px 0px 28px -6px rgba(0, 0, 0, 0.75);
@@ -65,6 +70,9 @@ h4 {
   width: 60%; }
   .info_wrapper p {
     font-size: .7em; }
+    @media (max-width: 768px) {
+      .info_wrapper p {
+        font-size: .6em; } }
 
 .modal {
   display: flex;
