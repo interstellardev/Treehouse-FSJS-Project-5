@@ -9,6 +9,7 @@ let seed = 'e6f1eb12a70145eb';
 //inserting search bar
 nav.innerHTML += `<input type="text" placeholder="Search">`;
 const searchBox = document.querySelector('input');
+matchedList = [];
 
 
 // ------------------------------------------
@@ -58,6 +59,7 @@ function fetchData(url) {
         });
         const gridItems = document.querySelectorAll('.grid_item');
         createEvent(gridItems);
+        search(gridItems);
     })
 }());
 
@@ -68,6 +70,7 @@ function fetchData(url) {
 //function that creates an event listener for each item in a list
 function createEvent(itemList) {
     for(let i = 0; i < itemList.length; i++) {
+        matchedList.push(i);
         let employeeCard = itemList[i];
         employeeCard.addEventListener('click', (e) => {
             getThisEmployeeData(i);
@@ -77,10 +80,13 @@ function createEvent(itemList) {
     }
 }
 
-focusCard.addEventListener('click', (e) => {
+modal.addEventListener('click', (e) => {
     const event = e.target;
     if(event.id === 'close') {
-        modal.style.display = 'none'
+        modal.style.display = 'none';
+    }
+    if(event.className === 'modal') {
+        modal.style.display = 'none';
     }
     if(event.id === 'left') {
         getThisEmployeeData((indexCurrent - 1));
@@ -103,7 +109,6 @@ function getThisEmployeeData(index) {
         const employeesStreet = employees[index].location.street;
         const employeesState =  capitalize(employees[index].location.state);
         const employeesDOB = formatDate(`${employees[index].dob.date}`);
-        console.log(employeesDOB);
         focusCard.innerHTML += `
         <div class="focus_item">
             <img src="img/x-mark.svg" alt="x mark to close window" id="close" display = ''>
@@ -122,6 +127,7 @@ function getThisEmployeeData(index) {
             </div>
         </div>
         `;
+        
         const leftArrow = document.getElementById('left');
         const rightArrow = document.getElementById('right');
         if(indexCurrent === 0) {
@@ -137,39 +143,35 @@ function getThisEmployeeData(index) {
 //  SEARCH FUNCTIONS
 // ------------------------------------------
 
-// function search() {
+function search(list) {
+    searchBox.addEventListener("keyup", (e) => searchBuild(list));
+}
+
+
+
+
+// this function gets value of the search input and then hides everything not matching search.
+function searchBuild(list) {
+    matchedList = [];
+    let searchValue = searchBox.value.toLowerCase();
+    //looping through the employee list to see if there are any matches to the search.
+    for (let i = 0; i < list.length; i++) {
+        list[i].style.display = 'none';
+        let employeeNames = list[i].querySelector('h4').innerHTML.toLowerCase();
+        let employeeEmail = list[i].querySelector('p').innerHTML.toLowerCase();
+        employeeEmail = employeeEmail.substring(0, employeeEmail.indexOf('@'));
+        let doesContainName = employeeNames.search(searchValue);
+        let doesContainEmail = employeeEmail.search(searchValue);
+        if (doesContainName != -1 || doesContainEmail != -1) {
+            matchedList.push(i);
+            list[i].removeAttribute('style');
+        } 
+    }
     
-//     searchBox.addEventListener("keyup", searchBuild());
-// }
+    // checking to see if the matchedList array is empty meaning no mathces found.
+    if (matchedList <= 0) {
+        alert("no employees found");
+    }
+}
 
 
-
-
-// // this function gets value of the search input and then hides everything not matching search.
-// function searchBuild() {
-//     console.log()
-//     // searchButton.addEventListener('click', () => {
-//     //     matchedList = [];
-//     //     let searchValue = searchDiv.querySelector('input').value.toLowerCase();
-//     //     //looping through the student list to see if there are any matches to the search.
-//     //     for (let i = 0; i < students.length; i++) {
-//     //         students[i].style.display = 'none';
-//     //         let studentNames = students[i].querySelector('.student-details h3').innerHTML.toLowerCase();
-//     //         let studentEmail = students[i].querySelector('.student-details .email').innerHTML.toLowerCase();
-//     //         let doesContainName = studentNames.search(searchValue);
-//     //         let doesContainEmail = studentEmail.search(searchValue);
-//     //         if (doesContainName != -1 || doesContainEmail != -1) {
-//     //             matchedList.push(students[i]);
-//     //             students[i].removeAttribute('style');
-//     //         } 
-//     //     }
-//     //     //checking to see if the matchedList array is empty meaning no mathces found.
-//     //     if (matchedList <= 0) {
-//     //         alert("no students found");
-//     //     }
-//     //     //calling theses functions to first list only 10 per page and then appending buttons at the bottom
-//     //     showPage(1, matchedList); 
-//     //     appendPageLinks(matchedList);
-    
-//     };
-// }
