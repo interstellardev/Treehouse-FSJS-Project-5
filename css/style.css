@@ -11,6 +11,9 @@ p:last-child {
 
 h1 {
   font-family: "Tajawal", sans-serif; }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5em; } }
 
 h3 {
   margin-top: 0;
@@ -70,7 +73,7 @@ h4 {
   position: absolute;
   background: rgba(45, 52, 54, 0.5);
   z-index: 1;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -174,6 +177,9 @@ header {
   /* IE6-9 fallback on horizontal gradient */
   color: white;
   padding: .5em 1.5em; }
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column; } }
 
 input {
   margin-left: auto;
@@ -181,5 +187,9 @@ input {
   border-radius: 10px;
   border: none;
   padding-left: .35em; }
+  @media (max-width: 768px) {
+    input {
+      margin-left: 0;
+      display: block; } }
 
 /*# sourceMappingURL=style.css.map */

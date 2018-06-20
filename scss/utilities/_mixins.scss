@@ -1,0 +1,12 @@
+@mixin mq($break) {
+    @if $break == desktop {
+        @media (min-width: $break-desktop) {
+            @content
+        }
+    } 
+    @if $break == mobile {
+        @media (max-width: $break-mobile) {
+            @content
+        }
+    } 
+}

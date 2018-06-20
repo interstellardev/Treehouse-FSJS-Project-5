@@ -5,18 +5,26 @@ const focusCard = document.querySelector('.focus_item');
 const nav = document.querySelector('header');
 let indexCurrent;
 let cardCount;
-let seed = 'e6f1eb12a70145eb';
+let seed;
 //inserting search bar
 nav.innerHTML += `<input type="text" placeholder="Search">`;
 const searchBox = document.querySelector('input');
 matchedList = [];
-
 
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
 }
 
 function formatDate(date) {
@@ -31,23 +39,21 @@ function fetchData(url) {
     return fetch(url).then(res => res.json());
 }
 
-// fetchData(`https://randomuser.me/api/?results=12&nat=us&inc=name,location,email,dob,phone,picture`)
-//     .then(data => {
-//         console.log(data);
-//     });
-
 // ------------------------------------------
 //  FETCH FUNCTIONS
 // ------------------------------------------
 
+//fetching data and creating employee cards 
 (function buildCards() {
-    fetchData(`https://randomuser.me/api/?seed=${seed}&results=12&noinfo`)
+    fetchData(`https://randomuser.me/api/?results=12&nat=us`)
     .then(data => {
+        console.log(data);
+        seed = data.info.seed;
         data.results.forEach(element => {
             const employeeImage = element.picture.large;
-            const employeeFirstName = capitalize(element.name.first);
-            const employeeLastName = capitalize(element.name.last); 
-            const emLocation = capitalize(element.location.city);
+            const employeeFirstName = toTitleCase(element.name.first);
+            const employeeLastName = toTitleCase(element.name.last); 
+            const emLocation = toTitleCase(element.location.city);
             grid.innerHTML += `<div class="grid_item">
                 <img src="${employeeImage}" class="employee_image">
                 <div class="info_wrapper">
@@ -80,6 +86,7 @@ function createEvent(itemList) {
     }
 }
 
+//event listener on modal interactions
 modal.addEventListener('click', (e) => {
     const event = e.target;
     if(event.id === 'close') {
@@ -96,18 +103,19 @@ modal.addEventListener('click', (e) => {
     }
 })
 
+// getting data and creating focus cards for each employee
 function getThisEmployeeData(index) {
     indexCurrent = index;
     focusCard.innerHTML = '';
-    fetchData(`https://randomuser.me/api/?seed=${seed}&results=12&noinfo`)
+    fetchData(`https://randomuser.me/api/?seed=${seed}&results=12&nat=us`)
     .then(data => {
         const employees = data.results;
         const employeesImage = employees[index].picture.large;
-        const employeesFirstName = capitalize(employees[index].name.first);
-        const employeesLastName = capitalize(employees[index].name.last);
-        const emsLocation = capitalize(employees[index].location.city);
-        const employeesStreet = employees[index].location.street;
-        const employeesState =  capitalize(employees[index].location.state);
+        const employeesFirstName = toTitleCase(employees[index].name.first);
+        const employeesLastName = toTitleCase(employees[index].name.last);
+        const emsLocation = toTitleCase(employees[index].location.city);
+        const employeesStreet = toTitleCase(employees[index].location.street);
+        const employeesState =  toTitleCase(employees[index].location.state);
         const employeesDOB = formatDate(`${employees[index].dob.date}`);
         focusCard.innerHTML += `
         <div class="focus_item">
@@ -127,7 +135,6 @@ function getThisEmployeeData(index) {
             </div>
         </div>
         `;
-        
         const leftArrow = document.getElementById('left');
         const rightArrow = document.getElementById('right');
         if(indexCurrent === 0) {
@@ -143,12 +150,10 @@ function getThisEmployeeData(index) {
 //  SEARCH FUNCTIONS
 // ------------------------------------------
 
+//adds event listener to search box;
 function search(list) {
     searchBox.addEventListener("keyup", (e) => searchBuild(list));
 }
-
-
-
 
 // this function gets value of the search input and then hides everything not matching search.
 function searchBuild(list) {
