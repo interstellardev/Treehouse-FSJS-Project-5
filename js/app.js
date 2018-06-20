@@ -75,7 +75,6 @@ function fetchData(url) {
 //function that creates an event listener for each item in a list
 function createEvent(itemList) {
     for(let i = 0; i < itemList.length; i++) {
-        matchedList.push(i);
         let employeeCard = itemList[i];
         employeeCard.addEventListener('click', (e) => {
             getThisEmployeeData(i);
@@ -171,13 +170,6 @@ function searchBuild(list) {
             list[i].removeAttribute('style');
         } 
     }
-    
-    // checking to see if the matchedList array is empty meaning no mathces found.
-    if (matchedList < 1) {
-        grid.appendChild(div).innerHTML += `No employees found`;
-    }
-    
-
 }
 
 

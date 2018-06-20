@@ -35,9 +35,19 @@
     height: 30px;
 }
 
+#left:hover {
+    height: 35px;
+    transition: .5s;
+}
+
 #right {
     position: absolute;
     top: 40%;
     right: 8px;
     height: 30px;
+}
+
+#right:hover {
+    height: 35px;
+    transition: .5s;
 }
