@@ -47,7 +47,6 @@ function fetchData(url) {
 (function buildCards() {
     fetchData(`https://randomuser.me/api/?results=12&nat=us`)
     .then(data => {
-        console.log(data);
         seed = data.info.seed;
         data.results.forEach(element => {
             const employeeImage = element.picture.large;
